@@ -5,10 +5,11 @@ import FooterBanner from "./Components/FooterBanner.jsx";
 import { Link } from "react-router-dom";
 import Photo from "../src/assets/1774408194683.jpg";
 import emailjs from "@emailjs/browser";
+import BackToTopButton from "./UI/BackToTopButton.jsx";
 
 function App() {
   const formRef = useRef();
-  
+
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -17,7 +18,7 @@ function App() {
         "service_35oi749",
         "template_bf5at6i",
         formRef.current,
-        "tMu4s46L6GpNILWJd"
+        "tMu4s46L6GpNILWJd",
       )
       .then(
         () => {
@@ -26,13 +27,14 @@ function App() {
         },
         (error) => {
           console.log("FAILED...", error);
-          alert("Something went wrong.")
-        }
+          alert("Something went wrong.");
+        },
       );
-  }
+  };
 
   return (
     <>
+      <BackToTopButton />
       <Nav variant="home" />
       <section id="hero">
         <div className="hero__content--wrapper">
@@ -51,7 +53,8 @@ function App() {
                   manually.
                 </p>
                 <p className="hero__desc">
-                  Note: If you're hesitant about AI, I offer many services that don't use it.
+                  Note: If you're hesitant about AI, I offer many services that
+                  don't use it.
                 </p>
                 <p className="hero__promise">
                   Ancient promises, modern results.
@@ -150,11 +153,13 @@ function App() {
         </div>
         <div className="works__item--list">
           <div className="works__item">
-            <h3 className="works__item--title">1 — I Learn About Your Business</h3>
+            <h3 className="works__item--title">
+              1 — I Learn About Your Business
+            </h3>
             <p className="works__item--desc">
-              We'll start with a <span className="bold">free</span> discovery call.
-              I listen to what's eating your time, where revenue is slipping,
-              and what a better-running business looks like for you.
+              We'll start with a <span className="bold">free</span> discovery
+              call. I listen to what's eating your time, where revenue is
+              slipping, and what a better-running business looks like for you.
             </p>
           </div>
           <div className="works__item">
@@ -213,10 +218,10 @@ function App() {
             Luminara Newborn Photography 📸
           </h2>
           <p className="case__study--desc--home">
-            Cami was watching photo gallery sales expire with no follow-up system in
-            place. I built an automated sequence that recovers lost sales and
-            generates new referrals — adding an estimated $500-$1,100 in monthly
-            revenue with zero extra effort on her part.
+            Cami was watching photo gallery sales expire with no follow-up
+            system in place. I built an automated sequence that recovers lost
+            sales and generates new referrals — adding an estimated $500-$1,100
+            in monthly revenue with zero extra effort on her part.
           </p>
           <p className="case__study--quote--home quote__two">
             "I was losing sales I didn't even know I was losing. The follow-up
@@ -264,7 +269,8 @@ function App() {
           working and I'll take it from there.
         </p>
         <p className="CTA__text">
-          Fill out the form below or book a call directly if you'd like to get something on the calendar right away.
+          Fill out the form below or book a call directly if you'd like to get
+          something on the calendar right away.
         </p>
         <div className="call__link--wrapper call__link--wrapper--home">
           <a
@@ -283,7 +289,7 @@ function App() {
         <form id="contact__form" ref={formRef} onSubmit={sendEmail}>
           <div className="form__item">
             <label className="form__item--label">Name</label>
-            <input type="text" name="name" className="input" required></input> 
+            <input type="text" name="name" className="input" required></input>
           </div>
           <div className="form__item">
             <label className="form__item--label">E-mail</label>
@@ -291,13 +297,25 @@ function App() {
           </div>
           <div className="form__item">
             <label className="form__item--label">Business Name</label>
-            <input type="text" name="business_name" className="input" required></input>
+            <input
+              type="text"
+              name="business_name"
+              className="input"
+              required
+            ></input>
           </div>
           <div className="form__item">
             <label className="form__item--label">Message</label>
-            <textarea type="text" name="message" className="input" required></textarea>
+            <textarea
+              type="text"
+              name="message"
+              className="input"
+              required
+            ></textarea>
           </div>
-          <button id="contact__submit" className="form__submit">Send it my way</button>
+          <button id="contact__submit" className="form__submit">
+            Send it my way
+          </button>
         </form>
       </section>
 

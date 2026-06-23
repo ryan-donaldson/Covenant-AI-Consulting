@@ -165,6 +165,12 @@
   margin-bottom: 5px;
 }
 
+.explanation__desc--one,
+.explanation__desc--two {
+  line-height: 1.6;
+  font-size: 18px;
+}
+
 .backToTop {
   position: fixed;
   right: 30px;
@@ -264,5 +270,9 @@
 
   .services__banner {
     margin: 0 12px;
+  }
+
+  .backToTop {
+    bottom: 12%;
   }
 }

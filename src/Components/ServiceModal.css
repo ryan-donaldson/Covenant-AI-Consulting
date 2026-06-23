@@ -38,7 +38,7 @@
 
 /* Section title */
 .modal__section-title {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -47,6 +47,10 @@
 .modal__list {
   margin-left: 1.2rem;
   line-height: 1.6;
+}
+
+.modal__list li {
+  font-size: 18px;
 }
 
 /* Divider */
@@ -63,6 +67,10 @@
   font-size: 1rem;
 }
 
+.modal__details p {
+  font-size: 18px;
+}
+
 /* Close button */
 .modal__close-btn {
   margin-top: 1.5rem;
@@ -72,7 +80,7 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-family: Playfair Display;
 }
 
