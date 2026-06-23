@@ -1,0 +1,224 @@
+.card__wrapper {
+  border: 3px solid #C9A84C;
+  border-radius: 25px;
+  text-align: center;
+  color: #1c1c1c;
+  padding: 8px 16px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__price--delivery {
+  display: flex;
+  justify-content: center;
+}
+
+.card__dot {
+  padding: 0 4px;
+}
+
+.learn__more {
+  display: flex;
+  justify-content: center;
+}
+
+.card__learn--more {
+  position: absolute;
+  top: 50%;
+  transform: translateY(100%);
+  max-width: 550px;
+  z-index: 3;
+  opacity: 0;
+  transition: transform 450ms, opacity 300ms;
+}
+
+.card__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #C9A84C;
+  opacity: 0;
+  transition: opacity 450ms ease;
+  z-index: 2;
+}
+
+.card__wrapper:hover::before {
+  opacity: 0.7;
+}
+
+.card__wrapper:hover .card__learn--more {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.card__wrapper:hover .card__title,
+.card__wrapper:hover .card__description,
+.card__wrapper:hover .card__price--delivery{
+  transform: scale(1.07);
+  filter: blur(5px);
+}
+
+.card__title,
+.card__description,
+.card__price--delivery {
+  transition: all 500ms ease;
+}
+
+
+
+/* 
+
+B DESIGN 
+
+*/
+/* .card__wrapper {
+  border: 3px solid #163832;
+  border-radius: 25px;
+  text-align: center;
+  color: #1c1c1c;
+  padding: 8px 16px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__price--delivery {
+  display: flex;
+  justify-content: center;
+}
+
+.card__dot {
+  padding: 0 4px;
+}
+
+.learn__more {
+  display: flex;
+  justify-content: center;
+}
+
+.card__learn--more {
+  position: absolute;
+  top: 50%;
+  transform: translateY(100%);
+  max-width: 550px;
+  z-index: 3;
+  opacity: 0;
+  transition: transform 450ms, opacity 300ms;
+  color: white;
+}
+
+.card__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #163832;
+  opacity: 0;
+  transition: opacity 450ms ease;
+  z-index: 2;
+}
+
+.card__wrapper:hover::before {
+  opacity: 0.7;
+}
+
+.card__wrapper:hover .card__learn--more {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.card__wrapper:hover .card__title,
+.card__wrapper:hover .card__description,
+.card__wrapper:hover .card__price--delivery{
+  transform: scale(1.07);
+  filter: blur(5px);
+}
+
+.card__title,
+.card__description,
+.card__price--delivery {
+  transition: all 500ms ease;
+} */
+
+/* 
+
+C DESIGN
+
+*/
+
+/* .card__wrapper {
+  border: 3px solid #163832;
+  border-radius: 25px;
+  text-align: center;
+  color: #1c1c1c;
+  padding: 8px 16px;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__price--delivery {
+  display: flex;
+  justify-content: center;
+}
+
+.card__dot {
+  padding: 0 4px;
+}
+
+.learn__more {
+  display: flex;
+  justify-content: center;
+}
+
+.card__learn--more {
+  position: absolute;
+  top: 50%;
+  transform: translateY(100%);
+  max-width: 550px;
+  z-index: 3;
+  opacity: 0;
+  transition: transform 450ms, opacity 300ms;
+  color: white;
+}
+
+.card__wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #163832;
+  opacity: 0;
+  transition: opacity 450ms ease;
+  z-index: 2;
+}
+
+.card__wrapper:hover::before {
+  opacity: 0.7;
+}
+
+.card__wrapper:hover .card__learn--more {
+  opacity: 1;
+  transform: translateY(-50%);
+}
+
+.card__wrapper:hover .card__title,
+.card__wrapper:hover .card__description,
+.card__wrapper:hover .card__price--delivery{
+  transform: scale(1.07);
+  filter: blur(5px);
+}
+
+.card__title,
+.card__description,
+.card__price--delivery {
+  transition: all 500ms ease;
+} */

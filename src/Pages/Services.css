@@ -1,0 +1,268 @@
+.services__banner {
+  text-align: center;
+  background: linear-gradient(to bottom,#C9A84C, #f7cd5c);
+  /* background: #1c1c1c; */
+  padding: 16px 0;
+  margin: 0 240px;
+  border: 3px solid #163832;
+  border-radius: 25px;
+  color: white;
+  position: relative;
+}
+
+.v-line {
+  width: 2px;
+  height: 200px;
+  background-color: #ccc;
+  margin: 0 auto;
+  margin-bottom: 12px;
+}
+
+.services__title--desc,
+.services__title {
+  text-transform: uppercase;
+}
+
+.quick__wins--title,
+.tiered__engagement--title,
+.addOn__menu--banner,
+.standalone__menu--banner {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #163832, #183f37 );
+  /* background: #163832; */
+  padding: 16px 0px;
+  margin: 0 575px;
+  margin-bottom: 24px;
+  border: 3px solid #C9A84C;
+  border-radius: 25px;
+}
+
+.quick__win--offers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  gap: 2rem;
+  padding: 0 10rem;
+}
+
+.quick__win--offers > :nth-child(3) {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+
+
+.tiered__engagement--packages {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  padding: 0 10rem;
+}
+
+.tiered__card {
+  width: calc(100% / 3);
+}
+
+
+
+.addOns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addOn__menu--title {
+  margin-bottom: 5px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  gap: 200px;
+  max-width: 700px;
+  width: 100%;
+  padding: 12px;
+  color: #1c1c1c;
+}
+
+.item__title {
+  max-width: 200px;
+}
+
+.item__line {
+  display: flex;
+  align-items: center;
+}
+
+.list__line {
+  max-width: 1700px;
+  width: 45%;
+  height: 2px;
+  background-color: #C9A84C;
+  border: none;
+}
+
+.item__title--wrapper {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.standalones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.standalone__item {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 100px;
+  max-width: 1000px;
+  width: 100%;
+  padding: 12px;
+  color: #1c1c1c;
+}
+
+.standalone__list--line {
+  max-width: 1700px;
+  width: 70%;
+  height: 2px;
+  background-color: #C9A84C;
+  border: none;
+}
+
+.standalone__menu--title {
+  margin-bottom: 5px;
+}
+
+.explanation__wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.explanation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+}
+
+.explanation__title {
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.explanation__desc--one {
+  margin-bottom: 5px;
+}
+
+.backToTop {
+  position: fixed;
+  right: 30px;
+  bottom: 33%; /* one-third up from bottom */
+  padding: 12px 12px;
+  width: 60px;
+  height: 60px;;
+  font-size: 22px;
+  border-radius: 50%;
+  border: none;
+  background: #333;
+  color: white;
+  cursor: pointer;
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.backToTop:hover {
+  background: #555;
+}
+
+.floating__cta {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.floating__cta:hover {
+  background: #555;
+  transform: translateY(-3px);
+}
+
+@media (max-width: 1024px) {
+  .quick__wins--title,
+  .tiered__engagement--title,
+  .addOn__menu--banner,
+  .standalone__menu--banner {
+    margin: 0 12px 12px;
+  }
+
+  .list__line {
+    width: 65%;
+  }
+
+  .standalone__list--line {
+    width: 85%;
+  }
+
+  .standalone__item {
+    margin-left: 124px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tiered__engagement--packages {
+    padding: 0 36px;
+  }
+
+  .list__line {
+    width: 85%;
+  }
+}
+
+@media (max-width: 480px) {
+  .standalone__item {
+    gap: 10px;
+    margin-left: 36px;
+  }
+
+  .quick__win--offers {
+    display: flex;
+    padding: 0;
+  }
+
+  .card__description {
+    font-size: 16px;
+  }
+
+  .card__title {
+    font-size: 18px;
+    margin-right: 18px;
+  }
+
+  .services__banner {
+    margin: 0 12px;
+  }
+}

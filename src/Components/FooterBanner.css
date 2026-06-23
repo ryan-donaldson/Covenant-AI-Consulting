@@ -1,0 +1,113 @@
+.footer__banner {
+  display: flex;
+  justify-content: center;
+  background: black;
+}
+
+.footer__banner--content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8rem;
+  width: max-content;
+}
+
+.banner__logo--wrapper {
+  padding: 12px;
+}
+
+.banner__logo {
+  width: 250px;
+}
+
+.banner__contact,
+.banner__media--links {
+  color: white;
+  padding: 8px 0;
+}
+
+.footer__banner--hr {
+  border: none;
+  border-top: 2px solid #C9A84C;
+  max-width: 50%;
+  padding: 4px 0;
+}
+
+.banner__contact--name,
+.banner__contact--number,
+.banner__contact--email,
+.footer__banner--link {
+  padding: 8px 0;
+}
+
+.footer__banner--link {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.footer__copyright {
+  margin-top: auto;
+  padding-bottom: 15px;
+}
+
+.call__link--footer--wrap {
+  filter: invert(1);
+  margin-bottom: 50px;
+}
+
+.call__link--footer {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .footer__banner {
+    display: flex;
+  }
+  .footer__banner--content {
+    display: flex;
+    max-width: 900px;
+    width: 100%;
+    gap: 8px;
+  }
+
+  .banner__logo--wrapper {
+    max-width: 400px;
+  }
+
+}
+  
+
+@media (max-width: 768px) {
+  .footer__banner--content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-left: 36px;
+  }
+  
+  .call__link--wrapper {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+
+  .banner__logo {
+    max-width: 270px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__banner--content {
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+
+  .banner__logo {
+    display: none;
+  }
+}

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Covenant AI — Website Structure</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green:   #163832;
+    --gold:    #C9A84C;
+    --gold-lt: #e8c97a;
+    --black:   #1C1C1C;
+    --white:   #F7F5F0;
+    --gray:    #E8E5DE;
+    --muted:   #7a7670;
+
+    --purple:  #4a3fa0;
+    --purple-lt: #ede9ff;
+    --amber:   #a06a10;
+    --amber-lt: #fff3d6;
+    --coral:   #993c28;
+    --coral-lt: #ffece7;
+    --teal:    #0f6e56;
+    --teal-lt: #e1f5ee;
+  }
+
+  body {
+    background: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--black);
+    padding: 48px 32px 80px;
+    min-width: 900px;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--green);
+    letter-spacing: 0.02em;
+  }
+  header span {
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .tagline {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  /* ── Layout grid ── */
+  .diagram {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-items: center;
+  }
+
+  /* ── Generic node ── */
+  .node {
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-align: center;
+  }
+  .node .label {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .node .sub {
+    font-size: 11px;
+    font-weight: 300;
+    opacity: 0.75;
+    margin-top: 2px;
+    line-height: 1.3;
+  }
+
+  /* ── Color variants ── */
+  .node-teal  { background: var(--teal-lt);   border: 1.5px solid var(--teal);   color: var(--teal); }
+  .node-purple{ background: var(--purple-lt); border: 1.5px solid var(--purple); color: var(--purple); }
+  .node-amber { background: var(--amber-lt);  border: 1.5px solid var(--amber);  color: var(--amber); }
+  .node-coral { background: var(--coral-lt);  border: 1.5px solid var(--coral);  color: var(--coral); }
+  .node-gray  { background: var(--gray);      border: 1px solid #ccc;            color: var(--black); }
+  .node-gray .label { font-weight: 400; }
+
+  /* ── Connector lines via flex + pseudo ── */
+  .connector {
+    width: 2px;
+    height: 28px;
+    background: #ccc;
+    margin: 0 auto;
+  }
+  .connector-short { height: 16px; }
+  .connector-tall  { height: 40px; }
+
+  /* ── Row of nodes ── */
+  .row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  /* ── Branch connector from a single parent to multiple children ── */
+  .branch-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  /* Horizontal bar connecting children */
+  .hbar-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .hbar-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
+
+  .hbar-col .tick {
+    width: 2px;
+    height: 20px;
+    background: #ccc;
+  }
+
+  /* ── Two-column split ── */
+  .split {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .split-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 440px;
+  }
+
+  .split-col .col-header {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  /* Divider */
+  .divider {
+    width: 1px;
+    background: var(--gray);
+    align-self: stretch;
+    margin: 0 8px;
+  }
+
+  /* ── Section headers ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 20px 0 8px;
+    text-align: center;
+  }
+
+  /* ── List node (for add-ons etc.) ── */
+  .list-node {
+    background: var(--gray);
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 18px;
+    width: 100%;
+  }
+  .list-node .list-title {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .list-node ul {
+    list-style: none;
+    padding: 0;
+  }
+  .list-node ul li {
+    font-size: 12px;
+    padding: 4px 0;
+    border-bottom: 1px solid #ddd;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .list-node ul li:last-child { border-bottom: none; }
+  .list-node ul li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--coral);
+    flex-shrink: 0;
+  }
+
+  /* ── Price badge ── */
+  .price {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 3px;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── Cross-pollination note ── */
+  .cross-note {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f0fdf6;
+    border: 1px dashed var(--teal);
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-size: 12px;
+    color: var(--teal);
+    margin: 20px auto;
+    max-width: 500px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ── Service areas row ── */
+  .service-areas {
+    margin-top: 8px;
+    width: 100%;
+  }
+  .service-areas .row {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .service-areas .node {
+    flex: 1;
+    padding: 10px 8px;
+  }
+  .service-areas .node .label {
+    font-size: 11px;
+  }
+  .service-areas .node .sub {
+    font-size: 10px;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray);
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ── Footer ── */
+  footer {
+    margin-top: 48px;
+    font-size: 11px;
+    color: var(--muted);
+    text-align: center;
+    font-style: italic;
+    letter-spacing: 0.04em;
+  }
+
+  /* Print */
+  @media print {
+    body { padding: 24px; min-width: unset; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Covenant AI Consulting</h1>
+  <span>Website Structure</span>
+</header>
+<p class="tagline">Ancient promises, modern results. — Internal reference · Phase 5 Service Definition</p>
+
+<div class="diagram">
+
+  <!-- ── ROOT ── -->
+  <div class="node node-teal" style="width:220px;">
+    <div class="label">Homepage</div>
+    <div class="sub">Entry point for all visitors</div>
+  </div>
+  <div class="connector"></div>
+
+  <!-- ── TWO-COLUMN SPLIT ── -->
+  <div class="split">
+
+    <!-- ════════════════════════════
+         LEFT COLUMN — SERVICES
+    ════════════════════════════ -->
+    <div class="split-col">
+      <div class="col-header">Services page — done for you</div>
+
+      <div class="node node-purple" style="width:100%; max-width:360px;">
+        <div class="label">Services Page</div>
+        <div class="sub">Done-for-you AI implementation</div>
+      </div>
+      <div class="connector"></div>
+
+      <!-- QUICK-WIN OFFERS -->
+      <div class="section-label">Quick-win entry offers</div>
+      <div style="display:flex; gap:10px; width:100%; max-width:360px;">
+
+        <div class="col" style="flex:1;">
+          <div class="node node-purple" style="width:100%;">
+            <div class="label">AI Marketing Jumpstart</div>
+            <div class="sub">Brand voice + 30 days content + email sequence</div>
+            <div class="price">$1,200 – $1,500 · 10 days</div>
+          </div>
+        </div>
+
+        <div class="col" style="flex:1;">
+          <div class="node node-purple" style="width:100%;">
+            <div class="label">AI Automation Starter</div>
+            <div class="sub">Process audit + 3 Zapier automations + chatbot</div>
+            <div class="price">$1,500 – $1,800 · 10 days</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bonus offer -->
+      <div style="width:100%; max-width:360px; margin-top:8px;">
+        <div class="node node-purple" style="width:100%;">
+          <div class="label">Reactivation Campaign</div>
+          <div class="sub">3-email sequence to dormant contacts</div>
+          <div class="price">$800 – $1,200 · 1 week</div>
+        </div>
+      </div>
+
+      <div style="height:12px; width:2px; background:#c9a84c; margin:0 auto; opacity:0.5;"></div>
+      <div style="font-size:11px; color:var(--gold); font-style:italic; margin-bottom:6px; opacity:0.8;">↓ upsells naturally into tiered packages</div>
+
+      <!-- TIERED PACKAGES -->
+      <div class="section-label">Tiered engagement packages</div>
+      <div style="display:flex; gap:10px; width:100%; max-width:360px;">
+
+        <div class="col" style="flex:1;">
+          <div class="node node-purple" style="width:100%;">
+            <div class="label">Starter</div>
+            <div class="sub">1 service area · 2–3 wks · no retainer</div>
+            <div class="price">$1,000 – $1,500</div>
+          </div>
+        </div>
+
+        <div class="col" style="flex:1;">
+          <div class="node node-purple" style="width:100%;">
+            <div class="label">Growth</div>
+            <div class="sub">2–3 areas · 4–6 wks · monthly retainer</div>
+            <div class="price">$2,500–$5k + $500–$1,500/mo</div>
+          </div>
+        </div>
+
+        <div class="col" style="flex:1;">
+          <div class="node node-purple" style="width:100%;">
+            <div class="label">Partner</div>
+            <div class="sub">All 6 areas · fully embedded · ongoing</div>
+            <div class="price">$5k–$10k + $2k–$4k/mo</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ADD-ONS -->
+      <div class="section-label" style="margin-top:16px;">Add-on menu</div>
+      <div class="list-node" style="max-width:360px;">
+        <div class="list-title">Bolt-on to any tier</div>
+        <ul>
+          <li>AI chatbot build — $500–$1,500</li>
+          <li>Lead nurture sequence — $600–$1,000</li>
+          <li>CRM setup &amp; pipeline — $500–$1,200</li>
+          <li>Monthly insights report — $300–$500/mo</li>
+          <li>Competitive intelligence setup — $400–$800</li>
+          <li>Staff AI training workshop — $1,500–$3,000</li>
+          <li>Custom prompt library — $200–$500</li>
+          <li>Quarterly strategy session — $500–$1,000</li>
+        </ul>
+      </div>
+
+      <!-- STANDALONE AUTOMATIONS -->
+      <div class="section-label" style="margin-top:16px;">Standalone automation pricing</div>
+      <div class="list-node" style="max-width:360px;">
+        <div class="list-title">A la carte Zapier builds</div>
+        <ul>
+          <li>Simple 2-step Zap — $150–$250</li>
+          <li>Multi-step workflow (3–5 steps) — $250–$400</li>
+          <li>AI-powered automation — $400–$600</li>
+          <li>Complex workflow / conditional logic — $500–$800</li>
+        </ul>
+      </div>
+
+    </div><!-- end left col -->
+
+    <!-- DIVIDER -->
+    <div class="divider"></div>
+
+    <!-- ════════════════════════════
+         RIGHT COLUMN — TRAINING
+    ════════════════════════════ -->
+    <div class="split-col">
+      <div class="col-header">Training page — learn it yourself</div>
+
+      <div class="node node-amber" style="width:100%; max-width:360px;">
+        <div class="label">Training Page</div>
+        <div class="sub">Courses · workshops · coaching · membership</div>
+      </div>
+      <div class="connector"></div>
+
+      <!-- ONLINE COURSES -->
+      <div class="section-label">Online courses</div>
+      <div class="node node-amber" style="width:100%; max-width:360px;">
+        <div class="label">Self-paced video courses</div>
+        <div class="sub">Record once, sell indefinitely. Top of funnel.</div>
+        <div class="price">$97 – $997</div>
+      </div>
+      <div class="list-node" style="max-width:360px; margin-top:8px;">
+        <div class="list-title">Course topics</div>
+        <ul>
+          <li>AI for Small Business Owners — the starter guide</li>
+          <li>Build your first AI chatbot (Tidio / ManyChat)</li>
+          <li>Automate your business with Zapier + AI</li>
+          <li>AI Marketing Mastery for small business</li>
+        </ul>
+      </div>
+
+      <!-- WORKSHOPS -->
+      <div class="section-label" style="margin-top:16px;">Live workshops</div>
+      <div class="node node-amber" style="width:100%; max-width:360px;">
+        <div class="label">Virtual &amp; in-person workshops</div>
+        <div class="sub">Hands-on · attendees leave with something built</div>
+        <div class="price">$97–$497/person · Private team: $1,500–$5,000</div>
+      </div>
+      <div class="list-node" style="max-width:360px; margin-top:8px;">
+        <div class="list-title">Workshop formats</div>
+        <ul>
+          <li>AI for Small Business: Your First 5 Automations</li>
+          <li>Writing with AI: Cut content time in half</li>
+          <li>The AI-Powered Sales Machine</li>
+          <li>Industry-specific niche workshops</li>
+          <li>Corporate team training — custom scoped</li>
+        </ul>
+      </div>
+
+      <!-- COACHING + MEMBERSHIP -->
+      <div class="section-label" style="margin-top:16px;">High-touch &amp; recurring</div>
+      <div style="display:flex; gap:10px; width:100%; max-width:360px;">
+        <div class="col" style="flex:1;">
+          <div class="node node-amber" style="width:100%;">
+            <div class="label">1-on-1 coaching</div>
+            <div class="sub">4–8 sessions over 4–8 weeks, screen-share walkthroughs</div>
+            <div class="price">$1,500 – $4,000</div>
+          </div>
+        </div>
+        <div class="col" style="flex:1;">
+          <div class="node node-amber" style="width:100%;">
+            <div class="label">Monthly membership</div>
+            <div class="sub">Ongoing training + live monthly Q&amp;A + community</div>
+            <div class="price">$27 – $197/month</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROMPT LIBRARY -->
+      <div style="width:100%; max-width:360px; margin-top:8px;">
+        <div class="node node-amber" style="width:100%;">
+          <div class="label">Prompt library download</div>
+          <div class="sub">50–100 pre-built prompts for common business tasks</div>
+          <div class="price">$27 – $97 · passive product</div>
+        </div>
+      </div>
+
+    </div><!-- end right col -->
+
+  </div><!-- end split -->
+
+  <!-- ── CROSS-POLLINATION NOTE ── -->
+  <div class="cross-note">
+    <span>↗</span>
+    <span>Training page visitors who want it done for them should see a clear CTA pointing back to the Services page. This path converts consistently.</span>
+  </div>
+
+  <!-- ── SERVICE AREAS ── -->
+  <div class="connector connector-short"></div>
+  <div class="section-label" style="margin:0 0 10px;">All tiers draw their deliverables from these six service areas</div>
+
+  <div class="service-areas" style="max-width:900px;">
+    <div class="row">
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">AI-Powered Marketing</div>
+        <div class="sub">Content · email · social · SEO</div>
+      </div>
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">Sales &amp; Lead Gen</div>
+        <div class="sub">Chatbots · CRM · nurture · booking</div>
+      </div>
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">Customer Service</div>
+        <div class="sub">FAQ automation · tickets · reviews</div>
+      </div>
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">Operations &amp; Workflows</div>
+        <div class="sub">Zapier · SOPs · docs · invoicing</div>
+      </div>
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">Data &amp; Insights</div>
+        <div class="sub">Dashboards · reports · analytics</div>
+      </div>
+      <div class="node node-coral" style="flex:1;">
+        <div class="label">AI Training &amp; Education</div>
+        <div class="sub">Taught via the Training page</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end diagram -->
+
+<!-- ── LEGEND ── -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:var(--teal-lt); border:1.5px solid var(--teal);"></div> Homepage</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--purple-lt); border:1.5px solid var(--purple);"></div> Services page — done-for-you</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--amber-lt); border:1.5px solid var(--amber);"></div> Training page — learn it yourself</div>
+  <div class="legend-item"><div class="legend-dot" style="background:var(--coral-lt); border:1.5px solid var(--coral);"></div> Six service areas (fuel all tiers)</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f0fdf6; border:1px dashed var(--teal);"></div> Cross-sell / upsell path</div>
+</div>
+
+<footer>Covenant AI Consulting · Website Structure Reference · Phase 5 — Service Definition</footer>
+
+</body>
+</html>

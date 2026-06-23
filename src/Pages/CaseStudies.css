@@ -1,0 +1,147 @@
+
+
+.case__studies--title {
+  text-align: center;
+  border-bottom: 2px solid #C9A84C;
+  max-width: 200px;
+  width: 100%;
+  margin: 1.5rem auto;
+}
+
+
+#case__study {
+  display: flex;
+  flex-direction: column;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.case__study--title--wrapper {
+  margin-bottom: 5px;
+}
+
+.case__study--title {
+  border-bottom: 2px solid #163832;
+  max-width: 430px;
+  width: 100%;
+}
+
+.case__study--details--wrapper,
+.results__title--wrapper {
+  margin-bottom: 10px;
+}
+
+.case__study--details--one,
+.case__study--details--two,
+.case__study--quote {
+  font-style: italic;
+}
+
+.case__study--desc--wrapper {
+  margin-bottom: 10px;
+}
+
+.case__study--desc--one {
+  margin-bottom: 3px;
+}
+
+.results__title {
+  border-bottom: 2px solid #163832;
+  max-width: 300px;
+  width: 100%;
+}
+
+.results__list--wrapper {
+  margin-bottom: 15px;
+}
+
+.results__list--item {
+  margin-bottom: 4px;
+  margin-left: 30px;
+  font-size: 18px;
+}
+.case__study--quote--wrapper,
+.case__study--quote--wrapper--two {
+  display: flex;
+}
+
+.case__study--quote--wrapper--two {
+  margin-bottom: 40px;
+}
+
+.case__study--quote {
+  display: flex;
+}
+
+.quotee {
+  margin-left: 8px;
+}
+
+.case__study--title--two {
+  border-bottom: 2px solid #163832;
+  max-width: 560px;
+  width: 100%;
+}
+
+.studies__line--break {
+  margin-bottom: 40px;
+  border: none;
+  border-top: 2px solid #C9A84C;
+  max-width: 1200px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1024px) {
+  #case__study {
+    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+  }
+
+  .studies__line--break {
+    max-width: 900px;
+  }
+
+  .disclaimer__wrapper {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  #case__study {
+    margin: 0 auto;
+    max-width: 740px;
+    width: 100%;
+    overflow-wrap: wrap;
+  }
+
+
+}
+
+@media (max-width: 480px) {
+  #case__study {
+    margin: 0 auto;
+    max-width: 450px;
+    width: 100%;
+    overflow-wrap: wrap;
+    margin-left: 12px
+  }
+
+  .case__study--title {
+    max-width: 420px;
+  }
+
+  .case__study--quote--wrapper {
+    max-width: 450px;
+    width: 100%;
+  }
+
+  .quotee {
+    margin-left: 0;
+    font-size: 12px;
+  }
+}
