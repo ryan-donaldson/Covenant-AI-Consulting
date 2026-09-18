@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import Nav from "../src/Components/Nav.jsx";
 import FooterBanner from "./Components/FooterBanner.jsx";
 import { Link } from "react-router-dom";

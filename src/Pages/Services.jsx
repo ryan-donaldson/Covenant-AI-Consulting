@@ -5,11 +5,11 @@ import Nav from "../Components/Nav.jsx";
 import ServiceCard from "../Components/ServiceCard.jsx";
 import ServiceModal from "../Components/ServiceModal.jsx";
 import servicesData from "../data/servicesData.js";
-import Footer from "../Components/Footer.jsx";
 import FooterBanner from "../Components/FooterBanner.jsx";
 import BackToTopButton from "../UI/BackToTopButton.jsx";
 import ContactPopup from "../UI/ContactPopup.jsx";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Services() {
   const [activeService, setActiveService] = useState(null);
@@ -85,6 +85,11 @@ function Services() {
               onClick={() => setActiveService(service)}
             />
           ))}
+        </div>
+        <div className="tiered__engagement--cta">
+          <Link to="/faq#service-areas">
+            Want to learn more about service areas? Click me!
+          </Link>
         </div>
       </div>
 

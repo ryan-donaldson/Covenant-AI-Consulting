@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Nav.css";
 import Logo from "../assets/Taglineless-removebg.png";
 import { Link } from "react-router-dom";
@@ -58,6 +58,9 @@ function Nav({ variant }) {
             <Link to="/casestudies" className="nav__link">
               Case Studies
             </Link>
+            <Link to="/faq" className="nav__link">
+              FAQ
+            </Link>
             <Link to="/about" className="nav__link">
               About
             </Link>
@@ -87,6 +90,9 @@ function Nav({ variant }) {
               </Link>
               <Link to="/casestudies" onClick={() => setMenuOpen(false)}>
                 Case Studies
+              </Link>
+              <Link to="/faq" onClick={() => setMenuOpen(false)}>
+                FAQ
               </Link>
               <Link to="/about" onClick={() => setMenuOpen(false)}>
                 About

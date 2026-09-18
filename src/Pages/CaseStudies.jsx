@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import "./CaseStudies.css";
 import Nav from "../Components/Nav.jsx";
 import FooterBanner from "../Components/FooterBanner.jsx";
